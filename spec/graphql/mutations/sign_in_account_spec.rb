@@ -15,10 +15,10 @@ RSpec.describe Mutations::SignInAccount do
     it { is_expected.to accept_argument(:password).of_type('String!') }
   end
 
-  describe '#resolve' do
+  describe '#resolve'  do
     subject(:result) { mutation.resolve(**params) }
 
-    context '正しいログイン情報' do
+    context '正しいログイン情報',skip: true do
       let(:params) { { email: account.email, password: 'password' } }
 
       it 'OK' do
@@ -29,7 +29,7 @@ RSpec.describe Mutations::SignInAccount do
       end
     end
 
-    context '不正なログイン情報' do
+    context '不正なログイン情報',skip: true do
       let(:params) { { email: account.email, password: 'hoge' } }
 
       it 'UnauthorizedError' do
