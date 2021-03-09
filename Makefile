@@ -75,7 +75,7 @@ buf_migrate_label:
 	@$(eval MIGRATE_LABEL := $(shell read -p "Input action and class label(like XxxYyy): " BUF; echo $$BUF))
 
 buf_graphql_label:
-	@$(eval GRAPHQL_LABEL := $(shell read -p "Input action and class label(like XxxYyy): " BUF; echo $$BUF))
+	@$(eval GRAPHQL_LABEL := $(shell read -p "Input graphql label: " BUF; echo $$BUF))
 
 rails_g_model: buf_model_name
 	@$(RAILS_C) g model $(MODEL_NAME)
@@ -140,4 +140,3 @@ terraform_destroy: terraform_env_check
 	@${TF_CD} && terraform destroy
 terraform_fmt:
 	@cd ./terraform && terraform fmt -recursive
-
