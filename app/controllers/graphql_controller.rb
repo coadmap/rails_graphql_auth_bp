@@ -11,7 +11,7 @@ class GraphqlController < ApplicationController
     context = {
       current_account: current_account
     }
-    result = WonderScrumSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    result = AppSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   rescue StandardError => e
     handle_error_in_development e
