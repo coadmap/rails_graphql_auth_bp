@@ -132,6 +132,7 @@ RSpec/EmptyLineAfterHook:
 RSpec/EmptyExampleGroup:
   Exclude:
     - 'spec/integration/**/*'
+    - 'spec/models/**/*'
 RSpec/LeakyConstantDeclaration:
   Exclude:
     - 'spec/integration/**/*'

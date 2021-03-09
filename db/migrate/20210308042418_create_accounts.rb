@@ -5,7 +5,6 @@ class CreateAccounts < ActiveRecord::Migration[6.1]
     create_table :accounts, id: :uuid, comment: 'アカウント' do |t|
       t.string :username, null: false, comment: 'ユーザー名'
       t.string :email, null: false, comment: 'メールアドレス'
-      t.string :avatar_url, null: true, comment: 'アバターURL'
       t.string :password_digest, comment: 'ハッシュ化されたパスワード'
 
       t.timestamps

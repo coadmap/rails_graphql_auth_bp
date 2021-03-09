@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.describe Mutations::SignInAccount do
   let(:mutation) { described_class.new(object: nil, context: context, field: nil) }
+  let(:context) { { current_account: account } }
 
   let_it_be(:account) { create(:account, password: 'password') }
-  let(:context) { { current_account: account } }
 
   describe '正しい引数を持っていること' do
     subject { described_class }
@@ -15,7 +15,7 @@ RSpec.describe Mutations::SignInAccount do
     it { is_expected.to accept_argument(:password).of_type('String!') }
   end
 
-  describe '#resolve' do
+  describe '#resolve'  do
     subject(:result) { mutation.resolve(**params) }
 
     context '正しいログイン情報' do
@@ -33,7 +33,7 @@ RSpec.describe Mutations::SignInAccount do
       let(:params) { { email: account.email, password: 'hoge' } }
 
       it 'UnauthorizedError' do
-        expect { subject }.to raise_error(Exceptions::UnauthorizedError)
+        expect { result }.to raise_error(Exceptions::UnauthorizedError)
       end
     end
   end
