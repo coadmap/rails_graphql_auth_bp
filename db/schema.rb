@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_042418) do
   create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, comment: "アカウント", force: :cascade do |t|
     t.string "username", null: false, comment: "ユーザー名"
     t.string "email", null: false, comment: "メールアドレス"
-    t.string "avatar_url", comment: "アバターURL"
     t.string "password_digest", comment: "ハッシュ化されたパスワード"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
