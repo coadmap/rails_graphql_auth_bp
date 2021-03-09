@@ -13,7 +13,6 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

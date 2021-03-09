@@ -18,7 +18,7 @@ RSpec.describe Mutations::SignInAccount do
   describe '#resolve'  do
     subject(:result) { mutation.resolve(**params) }
 
-    context '正しいログイン情報',skip: true do
+    context '正しいログイン情報' do
       let(:params) { { email: account.email, password: 'password' } }
 
       it 'OK' do
@@ -29,11 +29,11 @@ RSpec.describe Mutations::SignInAccount do
       end
     end
 
-    context '不正なログイン情報',skip: true do
+    context '不正なログイン情報' do
       let(:params) { { email: account.email, password: 'hoge' } }
 
       it 'UnauthorizedError' do
-        expect { subject }.to raise_error(Exceptions::UnauthorizedError)
+        expect { result }.to raise_error(Exceptions::UnauthorizedError)
       end
     end
   end

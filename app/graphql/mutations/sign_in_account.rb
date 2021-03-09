@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 module Mutations
+  # SignInAccount
   class SignInAccount < BaseMutation
     field :account, Types::AccountType, null: false
     field :token, String, null: false
@@ -6,7 +8,7 @@ module Mutations
     argument :email, String, required: true
     argument :password, String, required: true
 
-    def resolve(email, password)
+    def resolve(email:, password:)
       account = Account.find_by!(email: email)
       fail Exceptions::UnauthorizedError unless account.authenticate(password)
 

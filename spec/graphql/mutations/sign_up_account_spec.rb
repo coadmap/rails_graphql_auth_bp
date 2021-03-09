@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe Mutations::SignUpAccount do
@@ -24,7 +25,6 @@ RSpec.describe Mutations::SignUpAccount do
     let!(:account) { build(:account) }
 
     it 'OK' do
-      debugger
       expect(result).to have_key(:account)
       expect(result).to have_key(:token)
       expect(result[:account]).to be_a Account
