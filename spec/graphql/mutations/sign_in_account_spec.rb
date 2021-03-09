@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.describe Mutations::SignInAccount do
   let(:mutation) { described_class.new(object: nil, context: context, field: nil) }
+  let(:context) { { current_account: account } }
 
   let_it_be(:account) { create(:account, password: 'password') }
-  let(:context) { { current_account: account } }
 
   describe '正しい引数を持っていること' do
     subject { described_class }

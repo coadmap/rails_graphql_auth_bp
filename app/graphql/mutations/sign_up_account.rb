@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Mutations
   # SignUpAccount
-  class SignUpAccount < BaseMutation
+  class SignUpAccount < PublicMutation
     field :account, Types::AccountType, null: false
     field :token, String, null: false
 
